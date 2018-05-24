@@ -1,3 +1,131 @@
 body {
     text-align: center;
+    background-color: rgba(0,0,0, 0.5)!important;
+  	background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
+}
+
+#menu {
+	position: relative;
+}
+
+#game {
+	padding-top: 0;
+}
+
+#game-over{
+	display: none;
+	padding-top: 4em;
+	padding-bottom: 3em;
+	width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    z-index: 10000;
+    background-color: rgba(0,0,0, 0.4);
+    margin: 0 !important;
+}
+
+#game-over h1 {
+	font-size: 70px;
+	font-weight: bolder;
+	color: yellow;
+	opacity: 0.9;
+	text-shadow: 1px 1px 2px #000;
+}
+
+#game-over div {
+	font-size: 40px;
+	color: yellow;
+	text-shadow: 1px 1px 2px #fff;
+	padding-bottom: 1.5em;
+}
+
+#game-over input {
+	font-family: 'Skranji', cursive;
+	font-size: 25px;
+	color: yellow;
+	text-shadow: 1px 1px 2px #000;
+	width: 270px;
+	height: 50px;
+	border-radius: 10px;
+	background-color: rgba(127,240,255, 0.7);
+}
+
+#game-over input:hover {
+	opacity: 0.8;
+}
+
+.game-title {
+	font-family: 'Skranji', cursive;
+	font-size: 70px;
+	text-shadow: 2px 2px 2px #000;
+	color: yellow;
+	margin-bottom: 0 !important;
+}
+
+.project-title,
+.instructions,
+.instructions-title,
+.wish-title {
+	font-family: 'Josefin Sans', sans-serif;
+	color: #e0e0e0;
+	text-shadow: 1px 1px 2px #000;
+}
+
+.project-title {
+	margin-top: 0 !important;
+}
+
+.instructions {
+	font-size: 18px;
+	text-align: center;
+	padding-top: 0.5em;
+	padding-bottom: 1em;
+	list-style-type: none;
+}
+
+.instruction {
+	background-color: rgba(127,240,255, 0.3);
+	color: #e0e0e0;
+	border-radius: 10px;
+	width: 100%;
+}
+
+.instructions-title {
+	font-size: 25px;
+	font-weight: bold;
+	padding-top: 0.5em;
+}
+
+.wish-title {
+	font-size: 30px;
+	font-weight: bold;
+	padding-bottom: 0.5em;
+}
+
+.start-button {
+	font-family: 'Skranji', cursive;
+	font-size: 25px;
+	color: yellow;
+	text-shadow: 1px 1px 2px #000;
+	width: 270px;
+	height: 50px;
+	border-radius: 10px;
+	background-color: rgba(127,240,255, 0.7);
+}
+
+.start-button:hover {
+	opacity: 0.8;
+}
+
+.visible {
+	display: block !important;
+}
+
+.winner {
+	padding-top: 5em;
+}
+
+.modal {
+	background-color: rgba(0,0,0, 1)!important;
+  	background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
 }

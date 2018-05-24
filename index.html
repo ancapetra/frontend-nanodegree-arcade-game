@@ -2,10 +2,50 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Effective JavaScript: Frogger</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Skranji" rel="stylesheet">
 </head>
-<body>
+<body class="container-fluid">
+	<h1 class="game-title col-sm-12">Steal the Treasure</h1>
+	<h4 class="project-title col-sm-12">Classic Arcade Game Clone Project</h4>
+	<div id="menu" class="container col-sm-12">
+		<div class="col-sm-4">&emsp;</div>
+		<div class="container col-sm-4">
+			<h4 class="instructions-title col-sm-12" style="list-style-type: none;">Instructions</h4>
+			<ul class="instructions col-sm-12">
+				<li class="instruction">You are a THIEF!</li>
+				<li>&xdtri;</li>
+				<li class="instruction">Collect all the Gems you can</li>
+				<li>&xdtri;</li>
+				<li class="instruction">Avoid other thieves on the road because they steal your collected Gems</li>
+				<li>&xdtri;</li>
+				<li class="instruction">Avoid cops because you lose a Life</li>
+				<li>&xdtri;</li>
+				<li class="instruction">When you've reached the TREASURE... you've Won!</li>
+				<li>&xdtri;</li>
+				<li class="instruction">Click the button or press 'Enter' to start the game!</li>
+			</ul>
+			<h4 class="wish-title col-sm-12" style="list-style-type: none;">Good Luck!</h4>
+			<button id="start-button" class="start-button">Steal that TREASURE !</button>
+		</div>
+		<div class="col-sm-4">&emsp;</div>
+	</div>
+	<div id="game" class="modal container col-sm-12" style="display: none;">
+		<canvas id="game-canvas" width="1000px" height="750px"></canvas>
+	</div>
+	<div class="winner container col-sm-12">
+		<div class="col-sm-3">&emsp;</div>
+		<div id="game-over" class="container col-sm-6">
+			<h1></h1>
+			<div></div>
+			<input class="play-again" type="button" value="Play again?">
+		</div>
+		<div class="col-sm-3">&emsp;</div>
+	</div>
     <script src="js/resources.js"></script>
     <script src="js/app.js"></script>
     <script src="js/engine.js"></script>

@@ -20,14 +20,10 @@ var Engine = (function(global) {
      */
     var doc = global.document,
         win = global.window,
-        canvas = doc.createElement('canvas'),
+        canvas = doc.getElementById('game-canvas'),
         ctx = canvas.getContext('2d'),
         lastTime;
-
-    canvas.width = 505;
-    canvas.height = 606;
-    doc.body.appendChild(canvas);
-
+        
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
      */
@@ -79,7 +75,7 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        // checkCollisions();
+        checkCollisions();
     }
 
     /* This is called by the update function and loops through all of the
@@ -107,15 +103,16 @@ var Engine = (function(global) {
          * for that particular row of the game level.
          */
         var rowImages = [
-                'images/water-block.png',   // Top row is water
-                'images/stone-block.png',   // Row 1 of 3 of stone
-                'images/stone-block.png',   // Row 2 of 3 of stone
-                'images/stone-block.png',   // Row 3 of 3 of stone
-                'images/grass-block.png',   // Row 1 of 2 of grass
-                'images/grass-block.png'    // Row 2 of 2 of grass
+                'img/grass.png',   // Top row is grass
+                'img/road-top.png',   // Row 1 of 4 of road
+                'img/road.png',   // Row 2 of 4 of road
+                'img/road.png',   // Row 3 of 4 of road
+                'img/road.png',   // Row 3 of 4 of road
+                'img/road-bottom.png',   // Row 4 of 4 of road
+                'img/grass.png'    // Bottom row is grass
             ],
-            numRows = 6,
-            numCols = 5,
+            numRows = 7,
+            numCols = 10,
             row, col;
         
         // Before drawing, clear existing canvas
@@ -134,7 +131,7 @@ var Engine = (function(global) {
                  * so that we get the benefits of caching these images, since
                  * we're using them over and over.
                  */
-                ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
+                ctx.drawImage(Resources.get(rowImages[row]), col * 100, row * 100 + 50);
             }
         }
 
@@ -154,6 +151,20 @@ var Engine = (function(global) {
         });
 
         player.render();
+
+        objects.forEach(function(object) {
+            object.render();
+        });
+
+        lives.render();
+
+        gems.render();
+
+        displayGemCount();
+
+        displayCurrentHealth();
+
+        displayTitle();
     }
 
     /* This function does nothing but it could have been a good place to
@@ -161,7 +172,7 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-        // noop
+        document.querySelector('#game-over').classList.remove('visible');
     }
 
     /* Go ahead and load all of the images we know we're going to need to
@@ -169,11 +180,21 @@ var Engine = (function(global) {
      * all of these images are properly loaded our game will start.
      */
     Resources.load([
-        'images/stone-block.png',
-        'images/water-block.png',
-        'images/grass-block.png',
-        'images/enemy-bug.png',
-        'images/char-boy.png'
+        'img/grass.png',
+        'img/road-bottom.png',
+        'img/road.png',
+        'img/road-top.png',
+        'img/thief.png',
+        'img/car1.png',
+        'img/car2.png',
+        'img/car3.png',
+        'img/police.png',
+        'img/diamond.png',
+        'img/treasure.png',
+        'img/life.png',
+        'img/score-heart.png',
+        'img/score-heartbreak.png',
+        'img/score-diamond.png',
     ]);
     Resources.onReady(init);
 
